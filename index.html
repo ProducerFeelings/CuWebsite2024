@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    
+
+
+
+<style>
+
+:root {
+    font-size: 16px; /* Base font size */
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mostup {
+    background-color: pink;
+        width: 100%;
+    padding: 2rem; /* 160px */
+    box-sizing: border-box;
+}
+
+.lowerheader {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.5rem;
+}
+
+.top1 {
+padding:0.3rem;
+}
+
+.lowerheader img {
+    width:6.25rem;
+    margin-top:3.75rem;
+}
+
+.nav-bar {
+    display: flex;
+    list-style-type: none;
+    gap: 1.25rem;
+    padding: 0.625rem;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.25rem;
+}
+
+.nav-bar li {
+    list-style-type: none;
+}
+
+.nav-bar ul {
+    display: flex;
+    gap: 1.25rem; /* 20px */
+}
+
+h3, h1, h4, h5, h6, h7 {
+    font-size: 3.125rem; /* 50px */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 4.6875rem; /* 75px */
+}
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+/* Global paragraph style */
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font family */
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.6; /* Example line height */
+}
+
+
+
+section p {
+    color: gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.25rem; /* larger */
+}
+
+.blue-background {
+    background-color: lightblue;
+    width: 100%;
+    padding: 10rem; /* 160px */
+    box-sizing: border-box;
+}
+
+.quick-links {
+    display: flex;
+    gap: 0.625rem; /* 10px */
+}
+
+#head {
+    margin-top: 5rem; /* 80px */
+}
+
+.headtolink {
+    margin-top: 0.625rem; /* 10px */
+}
+
+.allinks {
+    display: flex;
+    margin-left: 12.5rem; /* 200px */
+    gap: 1.25rem; /* 20px */
+}
+
+.overview2 h1 {
+    text-decoration: none;
+    color: black;
+}
+
+.overview2 {
+    margin-top: 3.75rem; /* 60px */
+    margin-left: 12.1875rem; /* 195px */
+}
+
+.overviewbottom {
+    margin-top: 2.5rem; /* 40px */
+    margin-left: 12.1875rem; /* 195px */
+}
+
+.overp {
+    margin-top: -4.6875rem; /* -75px */
+    margin-left: 12.1875rem; /* 195px */
+}
+
+.cupic {
+    margin-left: 29.6875rem; /* 475px */
+    margin-top: -4.6875rem; /* -75px */
+}
+
+.bullets {
+    margin-top: -1.25rem; /* -20px */
+    margin-left: 12.1875rem; /* 195px */
+}
+
+.bullets ul {
+    margin-top: 0.625rem; /* 10px */
+    margin-bottom: 6.25rem; /* 100px */
+}
+
+.bullets ul li {
+    padding: 0.625rem 0; /* 10px 0 */
+}
+
+.swelling {
+    margin-top: -4.6875rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.swellpara {
+    margin-top: 1.25rem; /* 20px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.difference {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.diffpara {
+    margin-top: 1rem;
+    
+}
+
+.difflist ul li { padding: 0.5rem;}
+
+
+.common {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.symptomcauses {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.autoimmune {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.autoimmune li { padding: 0.3rem;}
+
+.autoimmune li {
+    text-decoration: underline;
+}
+
+.other {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.other li {padding: 0.3rem;}
+
+.other li {
+    text-decoration: underline;
+}
+
+.chronichive {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.chronichive li {padding: 0.7rem;}
+
+
+.underline {
+  text-decoration: underline;
+}
+
+
+.diagnosisandtests {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.diagnosisandtests li {padding: 0.7rem;
+
+}
+
+.diagnosed {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.diagnosed li {
+    padding: 0.7rem;
+}
+
+.management {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.management li {
+    padding: 0.7rem;
+}
+
+
+.hometreatment {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.hometreatment li {
+    padding: 0.7rem;
+}
+
+
+
+.natural {
+    margin-top: -30rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.natural li {
+    padding: 0.7rem;
+}
+
+
+.conclusion {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+
+
+
+.doctor {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+.doctor li {
+    padding: 0.7rem;
+} 
+
+
+
+.provider {
+    margin-top: 1rem; /* -75px */
+    margin-left: 11.25rem; /* 180px */
+}
+
+.provider li {
+    padding: 0.7rem;
+}
+
+
+.common [
+
+]
+
+
+.specialist {
+    margin-top: 1rem; /* -75px */
+    margin-left: 1rem; /* 180px */
+}
+
+.specialist li {
+    padding: 0.7rem;
+}
+
+.graysection {
+    background-color: gray;
+    margin-bottom:26rem;
+    height:15rem;
+    
+}
+
+.grayinfo {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 10rem;
+    
+
+}
+
+#movedown p, #movedown button  {
+    margin-top: 5rem;
+}
+
+.primarybutton, .secondarybutton {
+     color: #007bff;
+     padding: 0.15rem 2rem;
+     border-radius: 0.1rem;
+     margin: 0.3rem;
+     margin-bottom: 0.1rem;
+}
+
+
+.numonlygray {
+    color: blue;
+    margin-left: 25rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.whiteback {
+    margin-top: -27rem;
+    background-color: #FFF7EF;
+    margin-bottom: 20rem;
+    height:8rem;
+    
+}
+
+.whiteitems {
+display: flex;
+justify-content: center;
+margin-top: 10rem;
+}
+
+.svg1{
+    margin-top:2rem;
+}
+
+.footer-container {
+    margin-top: -20rem;
+    background-color: lightcyan;
+    padding-bottom: 4rem;
+}
+
+.footer {
+  margin-top: -8rem;
+  height: 40vh;
+  background-color: burlywood;
+  
+}
+
+.footerheading1  {
+    margin-left: 5rem;
+    margin-top: 25rem;
+    display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 1rem;
+}
+
+.footerheading1 h2 {
+    margin-bottom: 1rem;
+}
+
+.footerheading1 a {
+
+}
+
+
+ #1 {
+  margin-top: 20rem;  
+}
+
+.footerheading2 {
+    margin-left: 40rem;
+    margin-top: -4rem;
+    display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 1rem;
+}
+
+.footerheading3 {
+     margin-left: 80rem;
+    margin-top: -9rem;
+    display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 1rem;
+}
+
+.footer-content {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content p {
+    font-size: 1rem;
+}
+
+.grab4 {
+    margin-top: 40rem;
+}
+
+.blue  {
+    color: #007bff;
+}
+
+.sharesvgs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+    <main class="main-content">
+
+        <div class="mostup">
+          <p></p>
+        </div>
+       <div class="top1">
+        <div class="lowerheader">
+            <img src="./img/cuhand.png" alt="CU Hand">
+            <h3>Cu Solutions</h3>
+        </div>
+
+        <div class="nav-bar">
+            <ul>
+                <li><a href="https://www.zocdoc.com/">Find a Doctor</a></li>
+                <li><a href="https://www.google.com/maps?authuser=1">Location & Directions</a></li>
+                <li><a href="https://aad.org/public/diseases/a-z/hives-self-care">Other Resources</a></li>
+            </ul>
+        </div> 
+    </div> 
+        <div class="headtolink"> 
+            <section class="overview">
+                <div class="blue-background">
+                    <header class="header">
+                        <h1 id="head">Chronic Urticaria (Chronic Idiopathic Urticaria)</h1>
+                    </header>
+                    <br>
+                    <p>Chronic urticaria, also known as chronic hives, is a condition characterized by the presence of itchy, raised welts on the skin that persist for six weeks or longer. These welts, or hives, can appear anywhere on the body and may vary in size and shape. The exact cause of chronic urticaria is often unknown, but it can be triggered by a variety of factors, including</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="allinks">
+            <section class="quick-links">
+                <div class="links">
+                    <a href="#overview">Overview</a>
+                </div>
+            </section>
+
+            <section class="quick-links">
+                <div class="links">
+                    <a href="#symptomscauses">Symptoms and Causes</a>
+                </div>
+            </section>
+        </div>
+
+        <div class="overview2">
+            <h1>Overview</h1>
+        </div>
+        <div class="overviewbottom">
+        <h2> What are chronic <br> hives (chronic idiopathic<br> urticaria)?</h2>
+        </div>   
+        
+        <div class="cupic">
+            <img src="./img/blackskincu.jpeg" alt="Cu on black skin" width="250px"> 
+        </div>
+        
+        <br>
+        <br>
+        <div class="overp">
+        <p> Chronic hives are itchy,<br> raised, red bumps or welts <br> that appear on your skin at least twice per week. These <br>welts, also called wheals, are chronic when they last more<br> than six weeks.<br>
+
+            <br>
+            You may hear this condition called chronic idiopathic urticaria: </p>
+        </div>
+        <br>
+        <br>
+        <div class="bullets">
+            <ul>
+                <li><strong>Chronic:</strong> A symptom or condition that persists even with treatment.</li>
+                <li><strong>Idiopathic:</strong> The symptom or condition occurs for no known reason. It comes on suddenly.</li>
+                <li><strong>Urticaria:</strong> The medical term for hives, pronounced ur-tik-CARE-ee-uh.</li>
+            </ul>
+        </div>
+
+        <div class="swelling">
+            <h5> What are hives and <br> angioedema (swelling)? </h5>
+            </div>   
+
+            <div class="swellpara">
+                <p> Hives (urticaria) and angioedema (swelling) can occur together. Hives are raised red bumps or splotches on your skin. Angioedema (swelling) may occur in deep layers of tissue. This swelling can affect your face, lips, throat, hands, feet and genitals. </p>
+            </div>
+
+        <div class="difference">
+            <h6> What's the difference between <br> hives and chronic hives?</h6>
+            
+        <div class="diffpara"> 
+            <p> Chronic hives are different than acute hives: </p>
+        </div>
+        <div class="difflist">
+            <ul>
+                <li><strong> Acute hives </strong> start to fade within 24 hours (although new hives may replace them). They are gone within six weeks. A recent viral infection often causes acute hives. </li>
+                <li><strong> Chronic hives </strong>  are visible at least twice per week for more than six weeks. Some chronic hives last for months or years. The cause is often unknown. </li>
+            </ul>
+        </div>    
+        </div>    
+            
+        <div class="common">
+            <h3> How common are chronic hives? </h3>
+            <p> Up to 5% of people develop chronic hives. The condition affects all ages and genders but is more common in women ages 30 to 50. </p>
+        </div>
+
+        <div class="symptomcauses">
+            <h3> Symptoms and Causes </h3>
+            <h4> What causes chronic hives? </h4>
+            <p> For most people with chronic hives, there's no known <br> cause. Rarely medication allergies or food allergies cause <br> chronic hives. 
+            The most common allergic cause is <br> someting you consume on a regular basis. Other types <br>  of allergies may also bring on chronic hives. </p>
+           <br>
+            <p> Some people develop chr
+onic hives when their body <br>h changes temperature rapidly due to heat, cold or physical activity. Pressure on your skin from tight clothing may also cause the condition.</p>    
+        </div>
+
+        <div class="autoimmune">
+            <h3> What about autoimmune diseases cause chronic hives? </h3>
+           <br>
+            <p> About 1 in 5 people who develop chronic hives also have an autoimmune disease, such as: </p>
+           <br>
+           <li> Celiac disease </li>
+           <li> Dermatomoyositis</li>
+           <li> Diabetes </li>
+           <li> Lupus </li>
+           <li> Polymyositis </li>
+           <li> Rheumatoid arthritis </li>
+           <li> Thyroid disease </li>
+           <li> Vitiligo </li>
+           
+        </div>
+
+        <div class="other">
+
+            <h2> What other diseases cause chronic hives? </h2>
+            <p> Other conditions that may cause chronic hives include:</p>
+            <li> Asthma </li>
+            <li> Liver disease </li>
+            <li> Lymphomas, including Hodgkin lymphoma and non-Hodgkin's lymphoma.</li>
+            <li> Vasculitis.</li>
+        </div>
+
+        <div class="chronichive">
+            <h3> What are chronic hive symptoms? </h3>
+          <br>
+            <p> Hives can appear anywhere on your body and look <br> different on each person. Hives can have different shapes <br> and sizes. They may be as small as a pinprick or larger <br> than a softball.</p> <br>
+            <p> Chronic hive symptoms include: </p>
+
+            <li> Red, raised welts or bumps on your skin that may hurt <br> or sting.</li>
+            <li> Blanching (the center of the hive turns white when you press it).</li>
+            <li><span class="underline"> Itchy Skin (pruritus)</span>.</li>
+            <li> Swelling (angioedema). </li>
+        </div>
+        
+        <div class="diagnosisandtests"> 
+
+            <h1> Diagnosis and Tests</h1>
+            <h3> What type of doctor should I see for chronic hives? </h3>
+            <br>
+                <p> Healthcare providers who diagnose and treat chronic <br>  hives include: </p>
+                <li>  Allergists. </li>
+                <li> <span class="underline"> Dermatologists.</span>   </li>
+                <li>  Primary care physicians. </li>
+        
+            </div>
+
+        <div class="diagnosed">
+            <h1> How are chronic hives (chronic urticaria) diagnosed? </h1>
+            <br>
+            <p> Your healthcare provider can diagnose chronic hives by examining your skin and learning more about your symptoms. </p>
+            <p> Diagnostic tests for chronic hives can pinpoint or rule out causes. You may get one or more of these tests: </p>
+        
+            <li> <span class="underline blue">  Allergy test  </span> to see if an allergen is causing a reaction. </li>
+            <li> <strong> Blood test</strong> to check for high levels of antibodies <br>, proteins that help your body fight off bacteria <br>, allergens and other substances. </li>
+            <li> <strong> Urine test</strong> to look for bacterial infections. </li>
+            <li > <span class="underline blue"> Skin biopsy procedure </span> to confirm the diagnosis <br> and evaluate for other causes. </li>
+        </div>    
+
+
+       <div class="management">
+        <h1> Management and Treatment </h1>
+        <br>
+        <h2> What are chronic hives treatments? </h2> <br.
+        <br><br> <p>  Treatments for chronic hives include: </p> 
+        <li> <strong> Allergy medications:  </strong> Daily over-the-counter (OTC) or <br>  prescription  <span class="underline blue"> allergy medications </span> like antihistamines <br> relieve itching and reduce or prevent allergic <br> reactions. </li>
+        <li> <strong> Allergy shots: </strong>  A monthly injection of a drug called omalizumab (Xolair®) blocks your body’s production of immunoglobin E (IgE). People with severe allergies can make too much IgE, leading to problems like chronic hives and asthma.</li>
+        <li> <strong> Steroids  </strong> <span class="underline blue"> Corticosteroids  </span> like prednisone (Deltasone®, Rayos®) can ease symptoms that don’t respond to allergy medicines.</li>
+        <li> <strong>  Hydroxychloroquine </strong> A study found that 8 in 10 people with autoimmune disease-induced chronic hives got symptom relief after taking <br> hydroxychloroquine (Plaquenil®), an antimalarial drug, <br>  for three or more months.  </li>
+        <li> <strong>  Cyclosporine </strong>  This immunosuppressant is highly effective at clearing up severe chronic hives. But it can cause serious side effects when taken for too long. </li>
+    </div> 
+
+    <div class="hometreatment">
+        <h1> What are at-home treatments for chronic hives? </h1>
+        <br>
+        <h2> You can try these steps at home to ease itchy skin and soothe inflammation: </h2>
+        <li> Apply an OTC anti-itch cream </li>
+        <li> Place cool compresses on the hives several times a day (unless cool temperatures make hives worse). </li>
+        <li> Take a cool bath or shower. </li>
+        <li> Use hypoallergenic lotions and creams to moisturize dry skin. </li>
+        <li> Wear loose-fitting clothes made with soft fabric that won’t irritate your skin.</li>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="natural">
+    <h1> Non Pharmaceuticals </h1>
+    <br>
+    <h2> Natural remedies without side effects </h2>
+        <li> Portable Steam Sauna (must be used everyday to be effictive)</li>
+        <li>  <a href="https://www.google.com/search?q=low+histamine+diet&rlz=1C1RXMK_enUS1085US1085&oq=low+histamin&gs_lcrp=EgZjaHJvbWUqBwgBEAAYjwIyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAtIBCDI5MTFqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"> Low histamine Diet </a> </li>
+        <li> Quertin (supplement) </li>
+        <li> Oatmeal bath </li>
+        <li> Grassfed Beef Liver </li>
+
+    </div>
+
+    <div class="conclusion">
+
+        <h1> Can chronic hives last for years? </h1>
+        <br> 
+        <p> For half of people with chronic hives, the hives go away <br> (often without treatment) within a year. Treatments can <br> ease symptoms of long-lasting hives. </p>
+
+    </div>
+
+    <div class="doctor">
+
+        <h1> When should I call the doctor? </h1>
+        <br>
+        <p> Call your healthcare provider if you experience </p>
+        <li> Hives or swelling that lasts more than a week. </li>
+        <li> Infected-looking bumps (red, swollen or pus-filled). </li>
+        <li> Recurring hives that come back every few months.</li>
+        <li> Severely itchy skin.</li>
+
+    </div>
+
+    <div class="provider">
+        <h1> What should I ask my provider? </h1>
+        <p> You may want to ask your healthcare provider: </p>
+        <li> What is causing the chronic hives?</li>
+        <li> When should the chronic hives go away?</li>
+        <li> Should I get an allergy test? </li>
+        <li> What’s the best treatment for chronic hives? </li>
+        <li> What’s the best treatment to reduce itching? </li>
+        <li> Should I look out for signs of complications? </li>
+
+    </div>
+
+    <div class="common">
+
+        <h1> Additional Common Questions </h1>
+        <br>
+        <h2> Can stress or anxiety cause chronic hives? </h2>
+        <br>
+        <p> <span class="underline blue"> Stress</span> and <span class="underline blue"> anxiety</span> can worsen skin diseases. Anti-anxiety <br> medicines may help. You may also benefit from stress-<br>relieving therapies like mindfulness or <span class="underline blue"> meditation</span>.</p>
+        <br>
+        <p><strong> A note from Cleveland Clinic </strong></p>
+        <br>
+        <p> Chronic hives (chronic urticaria) can be itchy and <br> uncomfortable. You may become self-conscious about <br> your appearance. Most of the time, providers can’t <br> pinpoint the cause of chronic hives. However, treatments<br> like antihistamines, steroids and even <br>immunosuppressants can help. You can also take steps at <br>home to ease itching and swelling. For many people, chronic hives eventually go away, although it may take <br> a year or longer.
+         </p>
+    </div>
+
+    <div class="specialist">
+        <h1> What type of doctors should you see?  </h1>
+        <li> Allergists/ Immunologists </li>
+        <li> Dermatologists </li>
+        <li> Rheumatologists </li>
+        <li> Dermetologist </li>
+        <li> Endocrinologist </li>
+        <li> Hollistic (worst case scenario due to them typically  <br> being pricey.) </li>
+    </div>
+
+
+    </main>
+
+    <div class="svgsabove">
+        
+
+        
+
+
+
+    </div>
+
+
+
+
+
+    <div class="grab4">
+
+    <footer class="footer">
+   
+        <div class="graysection">
+
+            <div class="grayinfo" id="movedown">
+            <p style="color: white;"> Appointments </p>
+                       <button type="button" class="primarybutton"> APPOINTMENT & LOCATIONS </button>
+            <button type="button" class="secondarybutton"> REQUEST AN APPOINTMENT </button>
+        </div>
+            <div class="numonlygray">  <br> 216.444.5725</div>
+
+        </div>
+
+        <div class="whiteback">
+
+            <div class="whiteitems">
+                
+                <div class="svg1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="45" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                      </svg>
+                     
+
+                </div>
+                
+            </div>
+        </div>
+
+<div class="footer-container">
+    <div class="footer">
+        <div class="footerheading1" id="1">
+            <h2> Cu Resources </h2>
+            <a href="#"> Reddit Forums </a>
+            <a href="#"> Instagram Resource </a>
+            <a href="#"> New Advances in Treatment </a>
+         </div>
+        <div class="footerheading2" id="2">
+            <h2> Blog, News </h2>
+            <a href="#"> Consult </a>
+            <a href="#"> Health Essentials </a>
+            <a href="#"> Newsroom </a>
+            <a href="#"> MyChart </a>
+         </div>
+         <div class="footerheading3" id="3">
+            <h2> Blog, News </h2>
+            <a href="#"> Consult </a>
+            <a href="#"> Health Essentials </a>
+            <a href="#"> Newsroom </a>
+            <a href="#"> MyChart </a>
+         </div>
+    </div>
+<div class="footer-content">
+    <p>9500 Euclid Avenue, Cleveland, Ohio 44195 | 800.223.2273 | © 2024 Cleveland Clinic. All Rights Reserved.</p>
+    <a href="https://my.clevelandclinic.org/health/diseases/22900-chronic-hives-chronic-idiopathic-urticaria#additional-common-questions"></a>
+</div>
+
+</div>
+
+
+</div>
+    </footer>
+</body>
+
+</html>

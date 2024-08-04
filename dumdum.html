@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <style>
+        :root {
+            font-size: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mostup {
+            background-color: pink;
+            width: 100%;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .lowerheader {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 0.2rem;
+        }
+
+        .top1 {
+            padding: 20px;
+        }
+
+        .lowerheader img {
+            width: 6.25rem;
+            margin-top: 3.75rem;
+        }
+
+        .nav-bar {
+            display: flex;
+            list-style-type: none;
+            gap: 1.25rem;
+            padding: 0.625rem;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.25rem;
+        }
+
+        .nav-bar li {
+            list-style-type: none;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        h3, h1, h4, h5, h6, h7 {
+            font-size: 3.125rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-top: 4.6875rem;
+        }
+
+        h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+
+        section p {
+            color: gray;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.25rem;
+        }
+
+        .blue-background {
+            background-color: lightblue;
+            width: 100%;
+            padding: 10rem;
+            box-sizing: border-box;
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 0.625rem;
+        }
+
+        #head {
+            margin-top: 5rem;
+        }
+
+        .headtolink {
+            margin-top: 0.625rem;
+        }
+
+        .allinks {
+            display: flex;
+            margin-left: 12.5rem;
+            gap: 1.25rem;
+        }
+
+        .overview2 h1 {
+            text-decoration: none;
+            color: black;
+        }
+
+        .overview2 {
+            margin-top: 3.75rem;
+            margin-left: 12.1875rem;
+        }
+
+        .overviewbottom {
+            margin-top: 2.5rem;
+            margin-left: 12.1875rem;
+        }
+
+        .overp {
+            margin-top: -4.6875rem;
+            margin-left: 12.1875rem;
+        }
+
+        .cupic {
+            margin-left: 29.6875rem;
+            margin-top: -4.6875rem;
+        }
+
+        .bullets {
+            margin-top: -1.25rem;
+            margin-left: 12.1875rem;
+        }
+
+        .bullets ul {
+            margin-top: 0.625rem;
+            margin-bottom: 6.25rem;
+        }
+
+        .bullets ul li {
+            padding: 0.625rem 0;
+        }
+
+        .swelling {
+            margin-top: -4.6875rem;
+            margin-left: 11.25rem;
+        }
+
+        .swellpara {
+            margin-top: 1.25rem;
+            margin-left: 11.25rem;
+        }
+
+        .difference {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .diffpara {
+            margin-top: 1rem;
+        }
+
+        .difflist ul li {
+            padding: 0.5rem;
+        }
+
+        .common {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .symptomcauses {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .autoimmune {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .autoimmune li {
+            padding: 0.3rem;
+            text-decoration: underline;
+        }
+
+        .other {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .other li {
+            padding: 0.3rem;
+            text-decoration: underline;
+        }
+
+        .chronichive {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .chronichive li {
+            padding: 0.7rem;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .diagnosisandtests {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .diagnosisandtests li {
+            padding: 0.7rem;
+        }
+
+        .diagnosed {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .diagnosed li {
+            padding: 0.7rem;
+        }
+
+        .management {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .management li {
+            padding: 0.7rem;
+        }
+
+        .hometreatment {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .hometreatment li {
+            padding: 0.7rem;
+        }
+
+        .natural {
+            margin-top: -30rem;
+            margin-left: 11.25rem;
+        }
+
+        .natural li {
+            padding: 0.7rem;
+        }
+
+        .conclusion {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .doctor {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .doctor li {
+            padding: 0.7rem;
+        }
+
+        .provider {
+            margin-top: 1rem;
+            margin-left: 11.25rem;
+        }
+
+        .provider li {
+            padding: 0.7rem;
+        }
+
+        .graysection {
+            background-color: gray;
+            margin-bottom: 26rem;
+            height: 15rem;
+        }
+
+        .grayinfo {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 10rem;
+        }
+
+        #movedown p, #movedown button {
+            margin-top: 5rem;
+        }
+
+        .primarybutton, .secondarybutton {
+            color: #007bff;
+            padding: 0.15rem 2rem;
+            border-radius: 0.1rem;
+            margin: 0.3rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .numonlygray {
+            color: blue;
+            margin-left: 25rem;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .whiteback {
+            margin-top: -27rem;
+            background-color: #FFF7EF;
+            margin-bottom: 20rem;
+            height: 8rem;
+        }
+
+        .whiteitems {
+            display: flex;
+            justify-content: center;
+            margin-top: 10rem;
+        }
+
+        .svg1 {
+            margin-top: 2rem;
+        }
+
+        .footer-container {
+            margin-top: -20rem;
+            background-color: lightcyan;
+            padding-bottom: 4rem;
+        }
+
+        .footer {
+            margin-top: -8rem;
+            height: 40vh;
+            background-color: burlywood;
+        }
+
+        .footerheading1 {
+            margin-left: 5rem;
+            margin-top: 25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footerheading1 h2 {
+            margin-bottom: 1rem;
+        }
+
+        .footerheading2 {
+            margin-left: 40rem;
+            margin-top: -4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footerheading3 {
+            margin-left: 80rem;
+            margin-top: -9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footer-content {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-content p {
+            font-size: 1rem;
+        }
+
+        .grab4 {
+            margin-top: 40rem;
+        }
+
+        .blue {
+            color: #007bff;
+        }
+
+        .text-black {
+            color: black;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mostup">
+        <div class="lowerheader">
+            <div class="top1">
+                <img src="path/to/logo.png" alt="Logo">
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#causes">Causes</a></li>
+                    <li><a href="#symptoms">Symptoms</a></li>
+                    <li><a href="#treatment">Treatment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="overview2">
+        <h1>Overview</h1>
+    </section>
+    <section class="overviewbottom">
+        <p class="overp">This is an overview of chronic hives...</p>
+        <img class="cupic" src="path/to/image.jpg" alt="Chronic Hives">
+    </section>
+
+    <section class="common">
+        <h2>Common Causes</h2>
+        <p>Common causes of chronic hives include...</p>
+    </section>
+
+    <div class="svg1">
+        <svg id="SVGRepo1" viewBox="0 0 24 24" width="32" height="32">
+            <path d="M17.707,8.293l-1.414,1.414L19.586,13H10v2h9.586l-3.293,3.293l1.414,1.414L24,14L17.707,8.293z"></path>
+            <path d="M14,21v-2H2V5h12V3H2C0.896,3,0,3.896,0,5v14c0,1.104,0.896,2,2,2H14z"></path>
+        </svg>
+        <svg id="SVGRepo2" viewBox="0 0 24 24" width="32" height="32">
+            <path d="M19.414 8.586L24 13.172l-1.414 1.414-3.586-3.586V23h-2V10.707l-3.586 3.586L12 13.172l4.586-4.586zM0 7h14v2H0z"></path>
+        </svg>
+        <svg id="SVGRepo3" viewBox="0 0 24 24" width="32" height="32">
+            <path d="M14 18v2H2c-1.104 0-2-.896-2-2V2c0-1.104.896-2 2-2h12c1.104 0 2 .896 2 2v6h-2V2H2v16h12zm8.586-4L24 15.414 17.707 21.707l-1.414-1.414L19.586 16H8v-2h11.586l-3.293-3.293 1.414-1.414L22.586 14z"></path>
+        </svg>
+    </div>
+
+    <footer class="footer-container">
+        <div class="footer">
+            <div class="footerheading1">
+                <h2>Contact Us</h2>
+                <p>Address: 123 Main Street, City, Country</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footerheading2">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#causes">Causes</a></li>
+                    <li><a href="#symptoms">Symptoms</a></li>
+                    <li><a href="#treatment">Treatment</a></li>
+                </ul>
+            </div>
+            <div class="footerheading3">
+                <h2>Follow Us</h2>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2024 Your Website. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
