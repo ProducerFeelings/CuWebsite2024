@@ -664,7 +664,36 @@ margin-left: 15rem
     text-decoration: none;
 }
 
+.modal-content label {
 
+}
+
+.pwdreq {
+   margin-bottom:-6rem;
+   margin-top:-38px;
+}
+
+.pwdreq #message p  {
+    font-size:0.605rem;
+    color: #333; /* Example style */
+}
+
+.pwdreq h3 {
+    font-size:0.999rem;
+}
+
+.pwdreq p {
+    font-size:0.999rem;
+}
+
+.pwdreq {
+    margin-top: -4.3rem;
+}
+
+.signup2-link a {
+    top: -20px;
+    margin-top: -5rem;
+}
 
 
 </style>
@@ -701,10 +730,12 @@ margin-left: 15rem
             <br>
             <form id="signup-form">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-                <button type="submit">Log In</button>
+                <input type="password" id="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <br>
+                <br>
+                 <button type="submit">Log In</button>
             </form>
             <br>
             <br>
@@ -725,9 +756,22 @@ margin-left: 15rem
             <br>
             <form>
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+                
+                <div class="pwdreq">
+
+                    <h3> Password must contain the following: </h3>
+                    <p id="letter" class="invalid"> A <b> lowercase </b> letter </p>
+                    <p id="capital" class="invalid"> A <b> capital (uppercase) </b> letter </p>
+                    <p id="number" class="invalid">A <b>number</b></p>    
+                    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+
+                </div>    
+                <br>
+                <br>
+
                 <div class="terms-checkbox">
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms"> I have read and agree to the <a href="#">terms and conditions</a></label>
@@ -767,6 +811,7 @@ margin-left: 15rem
             </div>
          </div>
     </div>
+
 
 
         <div class="headtolink"> 
@@ -1175,13 +1220,11 @@ onic hives when their body <br>h changes temperature rapidly due to heat, cold o
 
             // Get the switch link from Sign Up to Sign in 
             var switchToSigninLink = document.getElementById('switch');
-            var backToSigninLink = document.getElementById('back-to-signin'); // New
-            var backToSigninLink2 = document.getElementById('switch2'); // New
+               var switchToSigninLink2 = document.getElementById('switch2'); // New
 
 
               // Get additional links in the Forgot Password modal
-            var loginLinkInForgotPassword = document.getElementById('login-link'); // New
-            var createAccountLinkInForgotPassword = document.getElementById('create-account-link'); // New
+              var createAccountLinkInForgotPassword = document.getElementById('create-account-link'); // Updated
 
             // Function to open a modal
             function openModal(modal) {
@@ -1234,7 +1277,7 @@ onic hives when their body <br>h changes temperature rapidly due to heat, cold o
     });
 
     // Event listener for switching from Forgot Password to Sign In
-    document.getElementById('login-link').addEventListener('click', function(e) {
+    document.getElementById('switch2').addEventListener('click', function(e) {
         e.preventDefault();
         closeModal(forgotPasswordModal);
         openModal(signinModal);
@@ -1254,6 +1297,29 @@ onic hives when their body <br>h changes temperature rapidly due to heat, cold o
     const hasLowerCase = /[a-z]/.test(password);
     const hasNumber = /[0-9]/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+
+      // Avoid common passwords or easily guessable sequences
+      const commonPasswords = ['password', '123456', '123456789', 'qwerty', 'abc123'];
+        if (commonPasswords.includes(password.toLowerCase())) {
+            return "Password is too common. Please choose a different password.";
+        }
+
+        // Avoid using easily accessible personal information
+        const personalInfo = [document.getElementById('signin-username').value, document.getElementById('signup-username').value];
+        if (personalInfo.includes(password)) {
+            return "Password should not contain easily accessible personal information.";
+        }
+
+        // Avoid repeated characters or sequences
+        if (/(\w)\1{2,}/.test(password)) {
+            return "Password should not contain repeated characters.";
+        }    
+
+
+
+
+
 
     if (password.length < minLength) {
         return "Password must be at least 8 characters long.";

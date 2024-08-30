@@ -1,32 +1,227 @@
 <html>
 
-
 <head>
-
     <style>
-
         h1 {
             text-align: center;
         }
-        
+
+        .start {
+            margin-top: 10rem;
+        }
+
+        .top {
+            background-color: hotpink;
+            height: 3rem;
+        }
+
+        .top a {
+            margin-left: 90rem;
+            margin-top: 10rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .intro p {
+            font-size: 1.25rem;
+        }
+
+        .term {
+            margin-left: 36.8rem;
+        }
+
+        /* Upload container styling */
+        .upload-container {
+            width: 10rem;
+            margin: 20px auto;
+            padding: 9rem;
+            border: 2px dashed #007;
+            border-radius: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .upload-container:hover {
+            background-color: #f0f8ff;
+            transform: scale(1.05);
+        }
+
+        /* Dragging effect */
+        .upload-container.dragging {
+            background-color: #cce7ff;
+            border-color: #0056b3;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin: 20px auto;
+            border: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Result message */
+        .result-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .dragdrop {
+            margin-left: 38rem;
+            font-size: 1.5rem;
+        }
+
+        /* Result container */
+        .result-container {
+            margin-top: 20px;
+        }
     </style>
-
 </head>
-
 
 <body>
 
-<h1> Cu Detector </h1>
+    <div class="top">
+        <p> <a href="#"> Sign Out </a> </p>
+    </div>
 
-<div class="intro">
-<h2> Welcome to the Chronic Urticaria Ai Photo Detector </h2>
-<p> Chronic Urticaria Ai Photo Dectector is a Ai tool that allows you to upload 
-    photos and recive feedback on whether your photos indicate that you have Chronic Urticaria. <br>
-    Now if you do have Chronic Urticaria based on the Ai's assesment you will recieve feedback 
-    on how you can treat your Cu.
-</p>
-</div>
+    <div class="start">
+        <h1> Cu Detector </h1>
+
+        <div class="intro">
+            <h2> Welcome to the Chronic Urticaria Ai Photo Detector </h2>
+            <p> Chronic Urticaria Ai Photo Detector is an AI tool that allows you to upload
+                photos and receive feedback on whether your photos indicate that you have Chronic Urticaria. <br>
+                If you do have Chronic Urticaria based on the AI's assessment, you will receive feedback
+                on how you can treat your CU.
+            </p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="term">
+        <form>
+            <label>
+                <input type="checkbox" id="termsCheckbox" name="terms">
+                I have read and agree to the terms and conditions
+            </label>
+        </form>
+    </div>
+
+    <div class="dragdrop">
+        <p> Drag & Drop your image here </p>
+    </div>
+
+    <br>
+
+    <div class="upload-container" id="uploadContainer">
+        <input type="file" id="imageUpload" accept=".jpeg, .jpg, .png" style="display: none;" multiple>
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        <div class="result-container" id="resultContainer"></div>
+    </div>
+
+    <script>
+        const uploadContainer = document.getElementById('uploadContainer');
+        const imageUpload = document.getElementById('imageUpload');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultContainer = document.getElementById('resultContainer');
+
+        // Handle drag & drop
+        uploadContainer.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.add('dragging');
+        });
+
+        uploadContainer.addEventListener('dragleave', () => {
+            uploadContainer.classList.remove('dragging');
+        });
+
+        uploadContainer.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.remove('dragging');
+            const files = event.dataTransfer.files;
+            if (files.length > 0 && files.length <= 5) {
+                processFiles(files);
+            } else {
+                alert('Please upload up to 5 JPEG or PNG images.');
+            }
+        });
+
+        uploadContainer.addEventListener('click', () => {
+            imageUpload.click();
+        });
+
+        imageUpload.addEventListener('change', (event) => {
+            const files = event.target.files;
+            if (files.length > 0 && files.length <= 5) {
+                processFiles(files);
+            } else {
+                alert('Please upload up to 5 JPEG or PNG images.');
+            }
+        });
+
+        function validateFileType(file) {
+            const validTypes = ['image/jpeg', 'image/png'];
+            return validTypes.includes(file.type);
+        }
+
+        function processFiles(files) {
+            resultContainer.innerHTML = ''; // Clear previous results
+            for (let i = 0; i < files.length; i++) {
+                if (validateFileType(files[i])) {
+                    startImageProcessing(files[i]);
+                } else {
+                    alert('Please upload a JPEG or PNG image.');
+                }
+            }
+        }
+
+        // Function to simulate image processing
+        function startImageProcessing(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+          
+            // Show the loading spinner
+            loadingSpinner.style.display = 'block';
+
+
+        fetch('http://localhost:5000/predict', {  // Update URL if necessary
+        method: 'POST',
+        body: formData
+    })  
+
+    
+            // Simulate processing time (e.g., calling an AI model)
+            setTimeout(() => {
+                // Hide the loading spinner after all files are processed
+                loadingSpinner.style.display = 'none';
+
+
+                // Display result message (this is where you would show real results)
+                const resultMessage = document.createElement('div');
+                resultMessage.classList.add('result-message');
+                resultMessage.textContent = `${file.name}: Image analysis complete!`;
+                resultMessage.style.display = 'block'; // Ensure the result message is displayed
+                resultContainer.appendChild(resultMessage);
+            }, 3000); // Simulate a 3-second processing time
+        }
+    </script>
+
 </body>
-
 
 </html>
