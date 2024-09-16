@@ -695,6 +695,96 @@ margin-left: 15rem
     margin-top: -5rem;
 }
 
+.show-password-label  {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 10rem;
+    
+}
+
+.show-password-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.show-password-label input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;  /* Keep border width consistent */
+}
+
+
+The movement of the checkbox when it's checked could be due to several factors, such as padding, margins, or the way the ::before pseudo-element is added when the box is checked. Here’s how you can troubleshoot and fix this:
+
+Possible Causes and Fixes
+Pseudo-element (::before) Offset:
+
+If you're adding a checkmark using the ::before pseudo-element, ensure that its position is correctly aligned with the checkbox, so it doesn't cause any shift when checked.
+Border Change:
+
+If the border changes when the checkbox is checked (e.g., it gets thicker), the size of the checkbox might change, causing it to shift. Ensure that the borders are consistent in both checked and unchecked states.
+Padding and Margin:
+
+Extra padding or margin might be applied when the checkbox is checked. Make sure the padding and margin don't change between states.
+Adjusted CSS
+Here’s an adjusted version of the CSS that should help prevent the checkbox from moving when checked:
+
+css
+Copy code
+/* Style the label for the checkbox */
+.show-password-label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Style the checkbox itself */
+.show-password-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Ensure consistent border width to prevent shifting */
+.show-password-label input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;  /* Keep border width consistent */
+}
+
+/* Add a checkmark inside the checkbox when checked */
+.show-password-label input[type="checkbox"]:checked::before {
+    content: '\2713';
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    top: 1px;  /* Adjust to prevent movement */
+    left: 3px; /* Adjust to prevent movement */
+}
+
+
 
 </style>
 </head>
@@ -733,6 +823,10 @@ margin-left: 15rem
                 <input type="text" id="username" name="username" required>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <!-- An element to toggle between password visibility -->
+                <label class="show-password-label"></label>
+                <input type="checkbox" onclick="myFunction()">Show Password
+                </label>
                 <br>
                 <br>
                  <button type="submit">Log In</button>
@@ -754,13 +848,20 @@ margin-left: 15rem
             <span class="close-button" id="close-signup">&times;</span>
             <h2>Sign Up</h2>
             <br>
-            <form>
+            <form id="signup-form">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
+               
+                
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
                 
-                <div class="pwdreq">
+                <!-- Show Password Checkbox -->
+                <label class="show-password-label">
+                    <input type="checkbox" id="show-password-checkbox" onclick="myFunction2()">Show Password
+                </label>
+                
+                <div class="pwdreq" id="message">
 
                     <h3> Password must contain the following: </h3>
                     <p id="letter" class="invalid"> A <b> lowercase </b> letter </p>
@@ -776,11 +877,13 @@ margin-left: 15rem
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms"> I have read and agree to the <a href="#">terms and conditions</a></label>
                 </div>
+                
                 <button type="submit">Sign Up</button>
             </form>
             <br>
             <br>
             <br>
+
             <div class="signup2-link">
                 <a href="#signin" id="switch"> Already have an account? Log in </a>
             </div>
@@ -1201,6 +1304,97 @@ onic hives when their body <br>h changes temperature rapidly due to heat, cold o
 
 
     <script>
+
+        // Show password javascript
+
+        function myFunction() {
+  var x = document.document.querySelector('#signin #password');
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function myFunction2() {
+    var passwordField = document.querySelector('#signup #password');
+    var showPasswordCheckbox = document.getElementById("show-password-checkbox");
+    
+    if (showPasswordCheckbox.checked) {
+        passwordField.type = "text";  // Show the password
+    } else {
+        passwordField.type = "password";  // Hide the password
+    }
+}
+
+
+
+
+
+        //Get inputs 
+
+        var myInput = document.getElementById('password');
+        var letter = document.getElementById('letter');
+        var capital = document.getElementById('capital');
+        var number = document.getElementById('number');
+        var length = document.getElementById('length')
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+        document.getElementById("message").style.display = "block";
+}
+
+       // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+        document.getElementById("message").style.display = "none";
+} 
+
+        // When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+}
+
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+
+
+
+
+
         document.addEventListener('DOMContentLoaded', function() {
             // Get modals
             var signinModal = document.getElementById('signin');
