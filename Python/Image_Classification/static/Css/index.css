@@ -1,8 +1,16 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    color: red; /* This sets the text color */
+    background-color: lightgray; /* This sets the background color */
+}
+
+
 
 .lowerheader {
     display: flex;
@@ -79,6 +87,9 @@ box-sizing: border-box;
 
 }
 
+.arrow {
+    margin-top: 40rem;
+}
 
 #head {
    margin-top: 80px;
