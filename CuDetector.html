@@ -90,14 +90,26 @@
         .result-container {
             margin-top: 20px;
         }
+
+        .top button { 
+            background-color: white;
+            color: black;
+            margin-left: 90rem;
+        }
+
     </style>
 </head>
 
 <body>
 
     <div class="top">
-        <p> <a href="#"> Sign Out </a> </p>
+        {% if 'username' in session %}
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+        {% endif %}
     </div>
+    
 
     <div class="start">
         <h1> Cu Detector </h1>
