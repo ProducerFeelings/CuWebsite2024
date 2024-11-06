@@ -7,10 +7,14 @@ import os
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 import io
+from flask_cors import CORS
+
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # For session management
-
+# Enable CORS for all routes
+CORS(app)
 # Set up a consistent path for the database
 db_path = r'C:\Users\danny\Desktop\repos\CuWebsite2024Updated\database.db'
 
@@ -56,12 +60,21 @@ def signup():
     try:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
+            # Check if the username or email already exists
+            cursor.execute('SELECT * FROM users WHERE username = ? OR email = ?', (username, email))
+            existing_user = cursor.fetchone()
+            
+            if existing_user:
+                flash("Username or Email already exists.")
+                return redirect(url_for('home'))
+            
+            # If user does not exist, proceed with registration
             cursor.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', 
                            (username, email, hashed_password))
             conn.commit()
             flash("Sign-Up successful! Please log in.")
     except sqlite3.IntegrityError:
-        flash("Username or Email already exists.")
+        flash("An error occurred while signing up. Please try again.")
     return redirect(url_for('home'))
 
 # User Sign-In
