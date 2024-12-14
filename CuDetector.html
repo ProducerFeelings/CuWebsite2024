@@ -103,12 +103,10 @@
 <body>
 
     <div class="top">
-        {% if 'username' in session %}
-        <form action="{{ url_for('logout') }}" method="POST">
+      <form action="{{ url_for('logout') }}" method="POST">
             <button type="submit">Logout</button>
         </form>
-        {% endif %}
-    </div>
+          </div>
     
 
     <div class="start">
@@ -203,35 +201,49 @@
             }
         }
 
-        // Function to simulate image processing
-        function startImageProcessing(file) {
+ // Function to simulate image processing
+ function startImageProcessing(file) {
             const formData = new FormData();
             formData.append('file', file);
-          
+         
             // Show the loading spinner
             loadingSpinner.style.display = 'block';
 
 
-        fetch('http://localhost:5000/predict', {  // Update URL if necessary
-        method: 'POST',
-        body: formData
-    })  
 
-    
-            // Simulate processing time (e.g., calling an AI model)
-            setTimeout(() => {
-                // Hide the loading spinner after all files are processed
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json(); // Assuming the server returns JSON
+            })
+            .then(data => {
+                // Process the result from the server
                 loadingSpinner.style.display = 'none';
 
 
-                // Display result message (this is where you would show real results)
                 const resultMessage = document.createElement('div');
                 resultMessage.classList.add('result-message');
-                resultMessage.textContent = `${file.name}: Image analysis complete!`;
-                resultMessage.style.display = 'block'; // Ensure the result message is displayed
+                resultMessage.textContent = `${file.name}: ${data.result}`;
+                resultMessage.style.display = 'block';
                 resultContainer.appendChild(resultMessage);
-            }, 3000); // Simulate a 3-second processing time
+            })
+            .catch(error => {
+                loadingSpinner.style.display = 'none';
+                console.error('Error during prediction:', error);
+                alert(`Error: ${error.message}`);
+            });
+
+
         }
+
+
+
     </script>
 
 </body>
